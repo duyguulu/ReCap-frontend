@@ -2,7 +2,7 @@
     <span class="visually-hidden">Loading...</span>
 </div>
 
-<table *ngIf="dataLoaded==true" class="table">
+<!-- <table *ngIf="dataLoaded==true" class="table">
     <thead>
         <tr>
             <th>Renk</th>
@@ -13,4 +13,11 @@
             <td>{{color.colorName}}</td>
         </tr>
     </tbody>
-</table>
+</table> -->
+<ul class="list-group">
+    <li [class]="getAllColorClass()" routerLink="/cars"><b>Tüm markalar</b></li>
+    <li (click)="setCurrentColor(color)" routerLink="/cars/color/{{color.colorId}}" *ngFor="let color of colors" 
+    [class]="getCurrentColorClass(color)">{{color.colorName}}</li>
+</ul>
+
+<h5 *ngIf="currentColor">{{currentColor.colorName}} regini seçtiniz</h5>

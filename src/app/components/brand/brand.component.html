@@ -2,7 +2,7 @@
     <span class="visually-hidden">Loading...</span>
 </div>
 
-<table *ngIf="dataLoaded==true" class="table">
+<!-- <table *ngIf="dataLoaded==true" class="table">
     <thead>
         <tr>
             <th>Marka</th>
@@ -13,4 +13,12 @@
             <td>{{brand.brandName}}</td>
         </tr>
     </tbody>
-</table>
+</table> -->
+
+<ul class="list-group">
+    <li [class]="getAllBrandClass()" routerLink="/cars"><b>Tüm markalar</b></li>
+    <li (click)="setCurrentBrand(brand)" routerLink="/cars/brand/{{brand.brandId}}" *ngFor="let brand of brands" 
+    [class]="getCurrentBrandClass(brand)">{{brand.brandName}}</li>
+</ul>
+
+<h5 *ngIf="currentBrand">{{currentBrand.brandName}} markasını seçtiniz</h5>

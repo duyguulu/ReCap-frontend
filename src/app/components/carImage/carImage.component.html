@@ -1,0 +1,14 @@
+<div *ngIf="dataLoaded==false" class="spinner-border text-secondary" role="status">
+    <span class="visually-hidden">Loading...</span>
+</div>
+<table>
+    <p>Resimler</p>
+    <thead>
+        <th></th>
+        <th>Yüklenme Tarihi</th>
+    </thead>
+    <tbody *ngFor="let carImage of carImages">
+        <td><img src="{{carImage.imagePath}}" alt="CarImages"></td>
+        <td>{{carImage.DateT}}</td>
+    </tbody>
+</table>
